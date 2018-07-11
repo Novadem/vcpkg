@@ -1,0 +1,28 @@
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 36971d6..ce7e49d 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -59,8 +59,22 @@ include_directories(
+   ${OPENSCENEGRAPH_INCLUDE_DIRS}
+   ${OSGEARTH_INCLUDE_DIRS}
+   ${Qt5Qml_INCLUDE_DIRS}
+-  ${Qt5Quick_INCLUDE_DIRS})
++  ${Qt5Quick_INCLUDE_DIRS}
++  
++  ${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/include/QtQuick/${Qt5Quick_VERSION_STRING}/QtQuick
++  ${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/include/QtQuick/${Qt5Quick_VERSION_STRING}
++  
++  ${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/include/QtQml/${Qt5Qml_VERSION_STRING}/QtQml
++  ${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/include/QtQml/${Qt5Qml_VERSION_STRING}
++  
++  ${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/include/QtCore/${Qt5Core_VERSION_STRING}/QtCore
++  ${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/include/QtCore/${Qt5Core_VERSION_STRING}
++  
++  ${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/include/QtGui/${Qt5Gui_VERSION_STRING}/QtGui
++  ${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/include/QtGui/${Qt5Gui_VERSION_STRING}
++  )
+ 
++  
+ add_subdirectory(qml)
+ add_subdirectory(quick)
+ 

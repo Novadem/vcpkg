@@ -1,0 +1,55 @@
+diff --git a/src/qml/osgtext/font.cpp b/src/qml/osgtext/font.cpp
+index c4920c1..22b1a7a 100644
+--- a/src/qml/osgtext/font.cpp
++++ b/src/qml/osgtext/font.cpp
+@@ -92,7 +92,7 @@ void FontQtQml::setImplementation(FontImplementationQtQml *implementation)
+ 
+    The text glyph image margin ratio
+  */
+-
++/*
+ qreal FontQtQml::getGlyphImageMarginRatio() const
+ {
+     return static_cast<qreal>(o(this)->getGlyphImageMarginRatio());
+@@ -105,7 +105,7 @@ void FontQtQml::setGlyphImageMarginRatio(qreal widthRation)
+     o(this)->setGlyphImageMarginRatio(static_cast<float>(widthRation));
+ 
+     emit glyphImageMarginRatioChanged(widthRation);
+-}
++} */
+ 
+ Font *FontQtQml::font()
+ {
+diff --git a/src/qml/osgtext/font.hpp b/src/qml/osgtext/font.hpp
+index 535257f..d2792c6 100644
+--- a/src/qml/osgtext/font.hpp
++++ b/src/qml/osgtext/font.hpp
+@@ -14,7 +14,7 @@ class OSGQTQML_EXPORT FontQtQml: public osg::ObjectQtQml
+   Q_OBJECT
+ 
+   Q_PROPERTY(osgText::FontImplementationQtQml* implementation READ getImplementation WRITE setImplementation NOTIFY implementationChanged)
+-  Q_PROPERTY(qreal glyphImageMarginRatio READ getGlyphImageMarginRatio WRITE setGlyphImageMarginRatio NOTIFY glyphImageMarginRatioChanged)
++  //Q_PROPERTY(qreal glyphImageMarginRatio READ getGlyphImageMarginRatio WRITE setGlyphImageMarginRatio NOTIFY glyphImageMarginRatioChanged)
+ 
+ public:
+   class Index;
+@@ -27,8 +27,8 @@ public:
+   Q_INVOKABLE FontImplementationQtQml *getImplementation();
+   Q_INVOKABLE void setImplementation(FontImplementationQtQml *implementation);
+ 
+-  Q_INVOKABLE qreal getGlyphImageMarginRatio() const;
+-  Q_INVOKABLE void setGlyphImageMarginRatio(qreal widthRatio);
++  //Q_INVOKABLE qreal getGlyphImageMarginRatio() const;
++  //Q_INVOKABLE void setGlyphImageMarginRatio(qreal widthRatio);
+ 
+   Font* font();
+ 
+@@ -36,7 +36,7 @@ public:
+ 
+ Q_SIGNALS:
+   void implementationChanged(FontImplementationQtQml *implementation) const;
+-  void glyphImageMarginRatioChanged(qreal widthRatio) const;
++  //void glyphImageMarginRatioChanged(qreal widthRatio) const;
+ };
+ 
+ }

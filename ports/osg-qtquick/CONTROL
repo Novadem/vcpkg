@@ -1,0 +1,4 @@
+Source: osg-qtquick
+Version: 2.0.0
+Description:  OpenSceneGraph wrapper for QtQuick
+Build-Depends: osg, osg-qt
