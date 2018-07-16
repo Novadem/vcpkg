@@ -3,8 +3,8 @@ include(vcpkg_common_functions)
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO podsvirov/osgqtquick
-    REF 86319c6ee527b4d25efbb515d75aba99727bb4f4
-    SHA512 0416ee5e4d478e9a08d2b40a1f5fcb776caf8806369142889e9e16ecc626ca355b198ddd6c08010b81a6a295855ff115822fca29d586a42883d0ddd8614b3aa7
+    REF de9bafd9df4a68cd2a0b81e3a2be2ec245b8cc39
+    SHA512 7f383f0db4c3d698713289bcc6a4c9988fba2eda837c452195fa1aaf0f40f47235b4be2bc2beb37611b4c524dbcf78b77d95a5d65fd565c80cffb9eb2447d404
     HEAD_REF develop
 )
 
@@ -12,7 +12,6 @@ vcpkg_from_github(
 vcpkg_apply_patches(
     SOURCE_PATH ${SOURCE_PATH}
     PATCHES 
-	${CMAKE_CURRENT_LIST_DIR}/fix-removed-features.patch # hack until patch from developper
 	${CMAKE_CURRENT_LIST_DIR}/fix-qt-private-headers-path.patch
 )
 
