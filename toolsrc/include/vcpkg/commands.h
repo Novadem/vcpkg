@@ -131,16 +131,11 @@ namespace vcpkg::Commands
 
     namespace Hash
     {
-        std::string get_string_hash(const std::string& s, const std::string& hash_type);
-        std::string get_file_hash(const Files::Filesystem& fs, const fs::path& path, const std::string& hash_type);
-
         void perform_and_exit(const VcpkgCmdArguments& args, const VcpkgPaths& paths);
     }
 
     namespace Fetch
     {
-        fs::path get_tool_path(const VcpkgPaths& paths, const std::string& tool);
-        std::string get_tool_version(const VcpkgPaths& paths, const std::string& tool);
         void perform_and_exit(const VcpkgCmdArguments& args, const VcpkgPaths& paths);
     }
 
