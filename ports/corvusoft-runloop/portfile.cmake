@@ -18,6 +18,19 @@ vcpkg_install_cmake()
 #Remove include debug files
 file(REMOVE_RECURSE ${CURRENT_PACKAGES_DIR}/debug/include)
 
+# Move and rename library
+file(MAKE_DIRECTORY ${CURRENT_PACKAGES_DIR}/lib)
+file(COPY ${CURRENT_PACKAGES_DIR}/library/runloop.lib DESTINATION ${CURRENT_PACKAGES_DIR}/lib)
+file(RENAME ${CURRENT_PACKAGES_DIR}/lib/runloop.lib ${CURRENT_PACKAGES_DIR}/lib/corvusoft-runloop.lib)
+file(REMOVE_RECURSE ${CURRENT_PACKAGES_DIR}/library)
+
+# Do the same for debug build
+file(MAKE_DIRECTORY ${CURRENT_PACKAGES_DIR}/debug/lib)
+file(COPY ${CURRENT_PACKAGES_DIR}/debug/library/runloop.lib DESTINATION ${CURRENT_PACKAGES_DIR}/debug/lib)
+file(RENAME ${CURRENT_PACKAGES_DIR}/debug/lib/runloop.lib ${CURRENT_PACKAGES_DIR}/debug/lib/corvusoft-runloop.lib)
+file(REMOVE_RECURSE ${CURRENT_PACKAGES_DIR}/debug/library)
+
+
 # Handle copyright
 file(COPY ${SOURCE_PATH}/LICENSE DESTINATION ${CURRENT_PACKAGES_DIR}/share/corvusoft-runloop)
 file(RENAME ${CURRENT_PACKAGES_DIR}/share/corvusoft-runloop/LICENSE ${CURRENT_PACKAGES_DIR}/share/corvusoft-runloop/copyright)
