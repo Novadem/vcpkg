@@ -2,7 +2,7 @@ include(vcpkg_common_functions)
 
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
-    REPO behdad/harfbuzz
+    REPO harfbuzz/harfbuzz
     REF 1.8.4
     SHA512 92742b754713d1df8975d4d8467de04765784d7fd566b7e07e7e7a261b0338e997a5fc11fa4fe282d6d5540d242db40c993812fbc4a881becd95fd3aae598c80
     HEAD_REF master
@@ -19,6 +19,11 @@ vcpkg_apply_patches(
 SET(HB_HAVE_ICU "OFF")
 if("icu" IN_LIST FEATURES)
     SET(HB_HAVE_ICU "ON")
+endif()
+
+SET(HB_HAVE_GRAPHITE2 "OFF")
+if("graphite2" IN_LIST FEATURES)
+    SET(HB_HAVE_GRAPHITE2 "ON")
 endif()
 
 ## Unicode callbacks
@@ -48,6 +53,7 @@ vcpkg_configure_cmake(
         -DHB_BUILTIN_UCDN=${BUILTIN_UCDN}
         -DHB_HAVE_ICU=${HB_HAVE_ICU}
         -DHB_HAVE_GLIB=${HAVE_GLIB}
+        -DHB_HAVE_GRAPHITE2=${HB_HAVE_GRAPHITE2}
     OPTIONS_DEBUG
         -DSKIP_INSTALL_HEADERS=ON
 )
